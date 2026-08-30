@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>LG TV Remote</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>LG TV Remote</h1>
+    <span id="status" class="status">connecting…</span>
+  </header>
+
+  <main class="remote">
+    <section class="power-row">
+      <button class="btn power" data-key="KEY_POWER">&#128267;</button>
+      <button class="btn" data-key="KEY_INPUT">Input</button>
+      <button class="btn" data-key="KEY_MUTE">Mute</button>
+    </section>
+
+    <section class="nav-row">
+      <button class="btn" data-key="KEY_HOME">Home</button>
+      <button class="btn" data-key="KEY_EXIT">Exit</button>
+      <button class="btn" data-key="KEY_MENU">Menu</button>
+      <button class="btn" data-key="KEY_GUIDE">Guide</button>
+    </section>
+
+    <section class="dpad">
+      <div class="dpad-grid">
+        <button class="btn" data-key="KEY_UP">&#9650;</button>
+        <button class="btn" data-key="KEY_LEFT">&#9664;</button>
+        <button class="btn ok" data-key="KEY_ENTER">OK</button>
+        <button class="btn" data-key="KEY_RIGHT">&#9654;</button>
+        <button class="btn" data-key="KEY_DOWN">&#9660;</button>
+      </div>
+    </section>
+
+    <section class="vol-ch">
+      <div class="group">
+        <button class="btn wide" data-key="KEY_VOLUMEUP">Vol +</button>
+        <button class="btn wide" data-key="KEY_VOLUMEDOWN">Vol −</button>
+      </div>
+      <div class="group">
+        <button class="btn wide" data-key="KEY_CHANNELUP">Ch +</button>
+        <button class="btn wide" data-key="KEY_CHANNELDOWN">Ch −</button>
+      </div>
+    </section>
+
+    <section class="colors">
+      <button class="btn red" data-key="KEY_RED">Red</button>
+      <button class="btn green" data-key="KEY_GREEN">Green</button>
+      <button class="btn yellow" data-key="KEY_YELLOW">Yellow</button>
+      <button class="btn blue" data-key="KEY_BLUE">Blue</button>
+    </section>
+
+    <section class="numpad">
+      <button class="btn" data-key="KEY_1">1</button>
+      <button class="btn" data-key="KEY_2">2</button>
+      <button class="btn" data-key="KEY_3">3</button>
+      <button class="btn" data-key="KEY_4">4</button>
+      <button class="btn" data-key="KEY_5">5</button>
+      <button class="btn" data-key="KEY_6">6</button>
+      <button class="btn" data-key="KEY_7">7</button>
+      <button class="btn" data-key="KEY_8">8</button>
+      <button class="btn" data-key="KEY_9">9</button>
+      <button class="btn" data-key="KEY_INFO">Info</button>
+      <button class="btn" data-key="KEY_0">0</button>
+      <button class="btn" data-key="KEY_BACK">Back</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

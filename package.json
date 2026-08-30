@@ -1,0 +1,15 @@
+{
+  "name": "gh-remote",
+  "version": "1.0.0",
+  "description": "Full remote web app for LG UHD AI ThinQ (webOS) TVs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "ws": "^8.21.3"
+  }
+}
