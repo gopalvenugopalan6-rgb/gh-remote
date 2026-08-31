@@ -6,10 +6,10 @@
     "semantic_hash": "ead861a00949199de4ecf1e9e3c362fc"
   },
   "js/app.js": {
-    "mtime": 1788150012.205286,
-    "seen": 1788150380.723279,
-    "ast_hash": "8ca219243c85106475fa155221a65a2c",
-    "semantic_hash": "8ca219243c85106475fa155221a65a2c"
+    "mtime": 1788150490.6665676,
+    "seen": 1788150549.884272,
+    "ast_hash": "2df38bb8aa57cd0adf11d2b1736bdc83",
+    "semantic_hash": ""
   },
   "js/discover.js": {
     "mtime": 1788148776.221073,
@@ -84,21 +84,39 @@
     "semantic_hash": "475cd49f386cf443a118b192d52bd0b2"
   },
   "overview.md": {
-    "mtime": 1788150174.4318082,
-    "seen": 1788150380.7232904,
-    "ast_hash": "784ef04c4c98ff2abeaf0c9fa9dbf6b3",
-    "semantic_hash": "784ef04c4c98ff2abeaf0c9fa9dbf6b3"
+    "mtime": 1788150549.6024146,
+    "seen": 1788150549.884285,
+    "ast_hash": "812675f326bb2450646a3754024459b5",
+    "semantic_hash": ""
   },
   "project.md": {
-    "mtime": 1788150200.0529344,
-    "seen": 1788150380.7232912,
-    "ast_hash": "30750a50bab434b90210b8c6dac38830",
-    "semantic_hash": "30750a50bab434b90210b8c6dac38830"
+    "mtime": 1788150549.6025672,
+    "seen": 1788150549.8842857,
+    "ast_hash": "3c1abc5af2ec6fca6f9857f635e479d4",
+    "semantic_hash": ""
   },
   "icons/icon-512.png": {
     "mtime": 1788149173.1623404,
     "seen": 1788150380.7232916,
     "ast_hash": "1c80fe1014c131fb38c02b027bc09047",
     "semantic_hash": "1c80fe1014c131fb38c02b027bc09047"
+  },
+  "icons/icon-192.png": {
+    "mtime": 1788149173.1493404,
+    "seen": 1788150549.8842869,
+    "ast_hash": "9da0da34d106e084ac2508f2037f57d4",
+    "semantic_hash": ""
+  },
+  "icons/icon-maskable.png": {
+    "mtime": 1788149173.1883404,
+    "seen": 1788150549.8842888,
+    "ast_hash": "51fdddc588e276a6e511294b7bdac6ce",
+    "semantic_hash": ""
+  },
+  "icons/icon.svg": {
+    "mtime": 1788149160.4333272,
+    "seen": 1788150549.8842895,
+    "ast_hash": "683c3308bc9a6e6bb6ca81a5b95c5510",
+    "semantic_hash": ""
   }
 }

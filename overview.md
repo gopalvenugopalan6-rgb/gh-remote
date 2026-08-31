@@ -101,6 +101,12 @@ and let me choose" cheap rather than three codebases.
 
 Adding a fourth theme = adding one block of tokens. Nothing else changes.
 
+Motion is shared rather than per-theme: `--ease-out`, `--dur-fast`, `--dur`,
+`--dur-slow` live on bare `:root`. There is deliberately **no overshoot curve**
+— a spring that passes its target reads as wobble on a control you are holding,
+so everything decelerates on one exponential curve. Anything that looks like it
+wants to animate size animates `transform` instead, never `width`/`height`.
+
 ---
 
 ## How the layout adapts

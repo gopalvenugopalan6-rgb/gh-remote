@@ -4,7 +4,7 @@
 **Repo:** `gopalvenugopalan6-rgb/gh-remote` (private)
 **Local:** `~/Projects/gh-remote`
 **Status:** Phases 1–6 complete. Awaiting first run against the real TV.
-**Last updated:** 2026-08-30
+**Last updated:** 2026-08-30 (design-audit pass)
 
 ---
 
@@ -37,6 +37,7 @@ desktop browser. No server, no app, no account.
 | 4 | Features — apps, inputs, channels, media, trackpad, typing, PWA | ✅ done |
 | 5 | Test — mock TV + 53 Playwright tests, phone and desktop | ✅ done |
 | 6 | Pentest + deploy — CSP, XSS audit, Pages workflow, docs | ✅ done |
+| 6b | Design audit — motion and layout-thrash pass | ✅ done |
 | 7 | **Real-TV verification** | ⏳ blocked — TV was off and on the extender's network |
 
 ## Verified
@@ -48,6 +49,8 @@ desktop browser. No server, no app, no account.
 - All touch targets ≥ 36px on phone (colour keys deliberately excluded).
 - No console errors during a full session across all four panels.
 - Screenshots reviewed for all three themes on phone and desktop.
+- Design audit clean: no overshoot easing, no layout-property animation. Both
+  findings were fixed rather than suppressed (`e539aa0`).
 
 ## Known bug fixed from the original code
 
