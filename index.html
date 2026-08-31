@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="tactile">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0b0d10">
+<meta name="description" content="A browser remote for LG webOS TVs. No server, no app, no account.">
+<title>gh-remote</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: http: https:; connect-src 'self' ws: wss:; form-action 'none'; base-uri 'none'; object-src 'none'">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" focusable="false"><defs>
+  <symbol id="i-power" viewBox="0 0 24 24"><path d="M12 3v9"/><path d="M6.3 6.3a8 8 0 1 0 11.4 0"/></symbol>
+  <symbol id="i-input" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></symbol>
+  <symbol id="i-mute" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m17 9 4 6M21 9l-4 6"/></symbol>
+  <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M16 9a4 4 0 0 1 0 6"/><path d="M19 6a8 8 0 0 1 0 12"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></symbol>
+  <symbol id="i-exit" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="i-guide" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5M12 8h.01"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="m7 4 13 8-13 8z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 4v16M15 4v16"/></symbol>
+  <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1.5"/></symbol>
+  <symbol id="i-rew" viewBox="0 0 24 24"><path d="M11 6 3 12l8 6z"/><path d="M21 6l-8 6 8 6z"/></symbol>
+  <symbol id="i-ff" viewBox="0 0 24 24"><path d="m13 6 8 6-8 6z"/><path d="M3 6l8 6-8 6z"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.6 1.7 1.7 0 0 0-1.9.4l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0-1.2-2.9H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1.1 1.7 1.7 0 0 0-.4-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 2.9 1.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.3.9-4.5 4.4 1 6.1-5.5-2.9-5.5 2.9 1-6.1L3 9.5l6.3-.9z"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-keyboard" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8"/></symbol>
+  <symbol id="i-cursor" viewBox="0 0 24 24"><path d="m5 3 6 17 2.5-6.5L20 11z"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-tv" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></symbol>
+  <symbol id="i-palette" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="9" r="1.3"/><circle cx="15" cy="9" r="1.3"/><circle cx="9" cy="15" r="1.3"/><circle cx="15" cy="15" r="1.3"/></symbol>
+  <symbol id="i-back-space" viewBox="0 0 24 24"><path d="M8 5h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H8l-6-7z"/><path d="m12 10 5 4M17 10l-5 4"/></symbol>
+</defs></svg>
+
+<!-- ───────────────────────── setup / connect screen ───────────────────────── -->
+<div id="setup" class="setup" hidden>
+  <div class="setup-card">
+    <div class="setup-head">
+      <svg class="ic ic-xl"><use href="#i-tv"/></svg>
+      <div>
+        <h1>Connect to your TV</h1>
+        <p class="muted" id="setup-sub">The TV and this device must be on the same Wi&#8209;Fi network.</p>
+      </div>
+    </div>
+
+    <div id="known-tvs" class="known-tvs" hidden>
+      <h2 class="section-label">Saved TVs</h2>
+      <div id="known-list" class="known-list"></div>
+    </div>
+
+    <label class="field">
+      <span class="field-label">TV IP address</span>
+      <div class="field-row">
+        <input id="host-input" type="text" inputmode="decimal" autocomplete="off"
+               spellcheck="false" placeholder="192.168.1.42" aria-label="TV IP address">
+        <button id="connect-btn" class="btn btn-primary">Connect</button>
+      </div>
+    </label>
+
+    <details class="cert-note" id="cert-note">
+      <summary>Connection refused, or nothing happens? Trust the TV&rsquo;s certificate first &rarr;</summary>
+      <div class="cert-body">
+        <p>LG TVs secure port 3001 with a certificate they signed themselves, which
+           your browser does not trust by default. From an <code>https://</code> page
+           the browser silently blocks the connection instead of asking you.</p>
+        <p><strong>One-time fix, per device:</strong></p>
+        <ol>
+          <li>Open <a id="cert-link" href="#" target="_blank" rel="noopener">https://<span id="cert-host">TV-IP</span>:3001</a> in this same browser.</li>
+          <li>You will get a privacy warning. Tap <em>Advanced</em> &rarr; <em>Proceed anyway</em>.</li>
+          <li>The page will look broken or blank. That is fine &mdash; the exception is now stored.</li>
+          <li>Come back here and press Connect.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="scan-box">
+      <summary>Don&rsquo;t know the IP? Scan the network</summary>
+      <div class="scan-body">
+        <div class="field-row">
+          <input id="subnet-input" type="text" inputmode="decimal" autocomplete="off"
+                 spellcheck="false" placeholder="192.168.1" aria-label="Subnet to scan">
+          <button id="scan-btn" class="btn">Scan</button>
+        </div>
+        <p class="muted small">Scans <code>.1</code>&ndash;<code>.254</code> for anything answering on
+           port 3001. A browser cannot see your network directly, so this measures
+           response timing &mdash; it is a good guess, not proof.</p>
+        <div id="scan-progress" class="scan-progress" hidden>
+          <div class="bar"><div class="bar-fill" id="scan-bar"></div></div>
+          <span id="scan-text" class="muted small"></span>
+        </div>
+        <div id="scan-results" class="known-list"></div>
+      </div>
+    </details>
+
+    <p id="setup-error" class="error-msg" hidden></p>
+  </div>
+</div>
+
+<!-- ───────────────────────────── pairing overlay ──────────────────────────── -->
+<div id="pairing" class="overlay" hidden>
+  <div class="overlay-card">
+    <div class="pulse"><svg class="ic ic-xl"><use href="#i-tv"/></svg></div>
+    <h2>Look at your TV</h2>
+    <p>It is showing a prompt asking whether to allow this device.
+       Press <strong>Allow</strong> with the physical remote.</p>
+    <p class="muted small">This happens once. After that the TV remembers this browser.</p>
+    <button id="pairing-cancel" class="btn">Cancel</button>
+  </div>
+</div>
+
+<!-- ─────────────────────────────── main app ──────────────────────────────── -->
+<div id="app" class="app" hidden>
+
+  <header class="topbar">
+    <button id="tv-btn" class="chip" aria-label="Connection status">
+      <span id="status-dot" class="dot"></span>
+      <span id="tv-name" class="chip-text">TV</span>
+    </button>
+    <div class="topbar-actions">
+      <button id="theme-btn" class="icon-btn" aria-label="Change theme" title="Change theme">
+        <svg class="ic"><use href="#i-palette"/></svg>
+      </button>
+      <button id="settings-btn" class="icon-btn" aria-label="Settings" title="Settings">
+        <svg class="ic"><use href="#i-gear"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="stage">
+
+    <!-- ── remote panel ── -->
+    <section class="panel" id="panel-remote" data-panel="remote">
+      <div class="panel-inner">
+
+        <div class="row row-3">
+          <button class="key key-power" data-act="powerOff" data-confirm="Turn the TV off?">
+            <svg class="ic"><use href="#i-power"/></svg><span>Power</span>
+          </button>
+          <button class="key" data-btn="INPUT_HUB" data-fallback="INPUT">
+            <svg class="ic"><use href="#i-input"/></svg><span>Input</span>
+          </button>
+          <button class="key" data-act="toggleMute">
+            <svg class="ic"><use href="#i-mute"/></svg><span id="mute-label">Mute</span>
+          </button>
+        </div>
+
+        <div class="row row-4">
+          <button class="key" data-btn="HOME"><svg class="ic"><use href="#i-home"/></svg><span>Home</span></button>
+          <button class="key" data-btn="BACK"><svg class="ic"><use href="#i-back"/></svg><span>Back</span></button>
+          <button class="key" data-btn="EXIT"><svg class="ic"><use href="#i-exit"/></svg><span>Exit</span></button>
+          <button class="key" data-btn="MENU"><svg class="ic"><use href="#i-menu"/></svg><span>Menu</span></button>
+        </div>
+
+        <div class="dpad-wrap">
+          <div class="dpad" role="group" aria-label="Directional pad">
+            <button class="dkey dkey-up" data-btn="UP" aria-label="Up"><svg class="ic"><use href="#i-up"/></svg></button>
+            <button class="dkey dkey-left" data-btn="LEFT" aria-label="Left"><svg class="ic"><use href="#i-left"/></svg></button>
+            <button class="dkey dkey-ok" data-btn="ENTER" aria-label="OK">OK</button>
+            <button class="dkey dkey-right" data-btn="RIGHT" aria-label="Right"><svg class="ic"><use href="#i-right"/></svg></button>
+            <button class="dkey dkey-down" data-btn="DOWN" aria-label="Down"><svg class="ic"><use href="#i-down"/></svg></button>
+          </div>
+
+          <div class="rockers">
+            <div class="rocker">
+              <button class="rkey" data-act="volumeUp" data-repeat aria-label="Volume up"><svg class="ic"><use href="#i-plus"/></svg></button>
+              <span class="rocker-label"><svg class="ic ic-sm"><use href="#i-volume"/></svg></span>
+              <button class="rkey" data-act="volumeDown" data-repeat aria-label="Volume down"><svg class="ic"><use href="#i-minus"/></svg></button>
+            </div>
+            <div class="rocker">
+              <button class="rkey" data-act="channelUp" data-repeat aria-label="Channel up"><svg class="ic"><use href="#i-plus"/></svg></button>
+              <span class="rocker-label">CH</span>
+              <button class="rkey" data-act="channelDown" data-repeat aria-label="Channel down"><svg class="ic"><use href="#i-minus"/></svg></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="vol-strip">
+          <svg class="ic ic-sm"><use href="#i-volume"/></svg>
+          <input id="vol-slider" type="range" min="0" max="100" value="0" step="1" aria-label="Volume">
+          <output id="vol-value" for="vol-slider">--</output>
+        </div>
+
+        <div class="row row-4 colors">
+          <button class="key ckey c-red" data-btn="RED" aria-label="Red"></button>
+          <button class="key ckey c-green" data-btn="GREEN" aria-label="Green"></button>
+          <button class="key ckey c-yellow" data-btn="YELLOW" aria-label="Yellow"></button>
+          <button class="key ckey c-blue" data-btn="BLUE" aria-label="Blue"></button>
+        </div>
+
+        <details class="numpad-box">
+          <summary>Number pad</summary>
+          <div class="numpad">
+            <button class="key" data-btn="1">1</button>
+            <button class="key" data-btn="2">2</button>
+            <button class="key" data-btn="3">3</button>
+            <button class="key" data-btn="4">4</button>
+            <button class="key" data-btn="5">5</button>
+            <button class="key" data-btn="6">6</button>
+            <button class="key" data-btn="7">7</button>
+            <button class="key" data-btn="8">8</button>
+            <button class="key" data-btn="9">9</button>
+            <button class="key" data-btn="DASH">&minus;</button>
+            <button class="key" data-btn="0">0</button>
+            <button class="key" data-btn="LIST"><svg class="ic"><use href="#i-guide"/></svg></button>
+          </div>
+        </details>
+
+        <div class="row row-3 secondary">
+          <button class="key" data-btn="GUIDE"><svg class="ic"><use href="#i-guide"/></svg><span>Guide</span></button>
+          <button class="key" data-btn="INFO"><svg class="ic"><use href="#i-info"/></svg><span>Info</span></button>
+          <button class="key" data-btn="QMENU"><svg class="ic"><use href="#i-gear"/></svg><span>Settings</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── touch panel ── -->
+    <section class="panel" id="panel-touch" data-panel="touch" hidden>
+      <div class="panel-inner">
+        <div id="trackpad" class="trackpad" tabindex="0" role="application"
+             aria-label="Trackpad. Drag to move the TV pointer, tap to click, two fingers to scroll.">
+          <div class="trackpad-hint">
+            <svg class="ic ic-xl"><use href="#i-cursor"/></svg>
+            <p>Drag to move the pointer<br><span class="muted small">Tap to click &middot; two fingers to scroll</span></p>
+          </div>
+          <div id="trackpad-ripple" class="ripple"></div>
+        </div>
+
+        <div class="row row-3">
+          <button class="key" data-btn="BACK"><svg class="ic"><use href="#i-back"/></svg><span>Back</span></button>
+          <button class="key" data-act="click"><svg class="ic"><use href="#i-cursor"/></svg><span>Click</span></button>
+          <button class="key" data-btn="HOME"><svg class="ic"><use href="#i-home"/></svg><span>Home</span></button>
+        </div>
+
+        <div class="kbd-box">
+          <h2 class="section-label"><svg class="ic ic-sm"><use href="#i-keyboard"/></svg> Type on the TV</h2>
+          <div class="field-row">
+            <input id="text-input" type="text" placeholder="Type into the TV's search box&hellip;"
+                   autocomplete="off" spellcheck="false" aria-label="Text to send to the TV">
+            <button id="text-send" class="btn btn-primary">Send</button>
+          </div>
+          <div class="row row-3 kbd-actions">
+            <button class="key" data-act="deleteCharacters"><svg class="ic"><use href="#i-back-space"/></svg><span>Delete</span></button>
+            <button class="key" data-act="sendEnter"><span>Enter</span></button>
+            <button class="key" id="text-live-toggle" aria-pressed="false"><span>Live typing</span></button>
+          </div>
+          <p class="muted small">Live typing sends each keystroke as you type it. Off by
+             default because a slow link makes it feel laggy.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── apps panel ── -->
+    <section class="panel" id="panel-apps" data-panel="apps" hidden>
+      <div class="panel-inner">
+        <div class="panel-head">
+          <div class="search-field">
+            <svg class="ic ic-sm"><use href="#i-search"/></svg>
+            <input id="app-search" type="search" placeholder="Search apps" aria-label="Search apps">
+          </div>
+          <button id="apps-refresh" class="icon-btn" aria-label="Reload app list" title="Reload">
+            <svg class="ic"><use href="#i-refresh"/></svg>
+          </button>
+        </div>
+        <div id="app-grid" class="app-grid"></div>
+        <p id="apps-empty" class="empty-state" hidden>No apps loaded yet.</p>
+      </div>
+    </section>
+
+    <!-- ── sources panel: inputs, channels, media ── -->
+    <section class="panel" id="panel-sources" data-panel="sources" hidden>
+      <div class="panel-inner">
+
+        <h2 class="section-label">Now playing</h2>
+        <div class="now-card">
+          <div class="now-text">
+            <strong id="now-app">&mdash;</strong>
+            <span id="now-extra" class="muted small"></span>
+          </div>
+          <div class="media-row">
+            <button class="key" data-act="rewind" aria-label="Rewind"><svg class="ic"><use href="#i-rew"/></svg></button>
+            <button class="key" data-act="play" aria-label="Play"><svg class="ic"><use href="#i-play"/></svg></button>
+            <button class="key" data-act="pause" aria-label="Pause"><svg class="ic"><use href="#i-pause"/></svg></button>
+            <button class="key" data-act="stop" aria-label="Stop"><svg class="ic"><use href="#i-stop"/></svg></button>
+            <button class="key" data-act="fastForward" aria-label="Fast forward"><svg class="ic"><use href="#i-ff"/></svg></button>
+          </div>
+        </div>
+
+        <div class="panel-head">
+          <h2 class="section-label">Inputs</h2>
+          <button id="inputs-refresh" class="icon-btn" aria-label="Reload inputs"><svg class="ic"><use href="#i-refresh"/></svg></button>
+        </div>
+        <div id="input-list" class="tile-list"></div>
+
+        <div class="panel-head">
+          <h2 class="section-label">Channels</h2>
+          <button id="channels-refresh" class="icon-btn" aria-label="Reload channels"><svg class="ic"><use href="#i-refresh"/></svg></button>
+        </div>
+        <div class="search-field">
+          <svg class="ic ic-sm"><use href="#i-search"/></svg>
+          <input id="channel-search" type="search" placeholder="Search channels" aria-label="Search channels">
+        </div>
+        <div id="channel-list" class="tile-list scroll-list"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <nav class="tabbar" role="tablist" aria-label="Sections">
+    <button class="tab is-active" data-tab="remote" role="tab" aria-selected="true">
+      <svg class="ic"><use href="#i-input"/></svg><span>Remote</span>
+    </button>
+    <button class="tab" data-tab="touch" role="tab" aria-selected="false">
+      <svg class="ic"><use href="#i-cursor"/></svg><span>Touch</span>
+    </button>
+    <button class="tab" data-tab="apps" role="tab" aria-selected="false">
+      <svg class="ic"><use href="#i-grid"/></svg><span>Apps</span>
+    </button>
+    <button class="tab" data-tab="sources" role="tab" aria-selected="false">
+      <svg class="ic"><use href="#i-tv"/></svg><span>Sources</span>
+    </button>
+  </nav>
+</div>
+
+<!-- ─────────────────────────────── settings ──────────────────────────────── -->
+<div id="settings" class="drawer" hidden>
+  <div class="drawer-card">
+    <div class="drawer-head">
+      <h2>Settings</h2>
+      <button id="settings-close" class="icon-btn" aria-label="Close settings"><svg class="ic"><use href="#i-close"/></svg></button>
+    </div>
+
+    <h3 class="section-label">Theme</h3>
+    <div class="theme-picker" id="theme-picker">
+      <button class="theme-swatch" data-theme-value="tactile">
+        <span class="sw sw-tactile"></span><span>Tactile</span>
+        <em class="muted small">Dark, physical, made for a dim room</em>
+      </button>
+      <button class="theme-swatch" data-theme-value="clean">
+        <span class="sw sw-clean"></span><span>Clean</span>
+        <em class="muted small">Airy and minimal, gesture-first</em>
+      </button>
+      <button class="theme-swatch" data-theme-value="panel">
+        <span class="sw sw-panel"></span><span>Panel</span>
+        <em class="muted small">Dense control surface, nothing hidden</em>
+      </button>
+    </div>
+
+    <h3 class="section-label">Feel</h3>
+    <label class="switch-row">
+      <span>Haptic feedback</span>
+      <input id="opt-haptics" type="checkbox">
+    </label>
+    <label class="switch-row">
+      <span>Natural scrolling</span>
+      <input id="opt-natural" type="checkbox">
+    </label>
+    <label class="slider-row">
+      <span>Pointer speed</span>
+      <input id="opt-speed" type="range" min="0.5" max="3" step="0.1">
+    </label>
+
+    <h3 class="section-label">Connection</h3>
+    <dl class="kv">
+      <dt>TV</dt><dd id="info-host">&mdash;</dd>
+      <dt>Endpoint</dt><dd id="info-endpoint">&mdash;</dd>
+      <dt>Model</dt><dd id="info-model">&mdash;</dd>
+      <dt>Paired</dt><dd id="info-paired">&mdash;</dd>
+    </dl>
+    <div class="drawer-actions">
+      <button id="reconnect-btn" class="btn">Reconnect</button>
+      <button id="switch-tv-btn" class="btn">Switch TV</button>
+      <button id="forget-btn" class="btn btn-danger">Forget this TV</button>
+    </div>
+
+    <p class="muted small footnote">
+      Power&nbsp;<em>on</em> is missing on purpose: waking a TV needs a Wake&#8209;on&#8209;LAN
+      packet over UDP, and browsers cannot send UDP. Use the physical remote to turn it on.
+    </p>
+  </div>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

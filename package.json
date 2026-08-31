@@ -1,15 +1,16 @@
 {
   "name": "gh-remote",
-  "version": "1.0.0",
-  "description": "Full remote web app for LG UHD AI ThinQ (webOS) TVs",
-  "main": "server.js",
+  "version": "2.0.0",
+  "description": "Browser remote for LG webOS TVs. Static site, no server, no account.",
+  "private": true,
+  "type": "commonjs",
   "scripts": {
-    "start": "node server.js"
+    "dev": "node dev/mock-tv.js",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed"
   },
-  "engines": {
-    "node": ">=16"
-  },
-  "dependencies": {
-    "ws": "^8.21.3"
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "ws": "^8.18.0"
   }
 }

@@ -1,0 +1,104 @@
+{
+  "dev/mock-tv.js": {
+    "mtime": 1788149360.4289007,
+    "seen": 1788150380.7232754,
+    "ast_hash": "ead861a00949199de4ecf1e9e3c362fc",
+    "semantic_hash": "ead861a00949199de4ecf1e9e3c362fc"
+  },
+  "js/app.js": {
+    "mtime": 1788150012.205286,
+    "seen": 1788150380.723279,
+    "ast_hash": "8ca219243c85106475fa155221a65a2c",
+    "semantic_hash": "8ca219243c85106475fa155221a65a2c"
+  },
+  "js/discover.js": {
+    "mtime": 1788148776.221073,
+    "seen": 1788150380.723281,
+    "ast_hash": "755ce970d47fc038692a63b38ef4f291",
+    "semantic_hash": "755ce970d47fc038692a63b38ef4f291"
+  },
+  "js/store.js": {
+    "mtime": 1788148755.2501357,
+    "seen": 1788150380.7232816,
+    "ast_hash": "18f7a4bee7eddba57b762f26136925cc",
+    "semantic_hash": "18f7a4bee7eddba57b762f26136925cc"
+  },
+  "js/ui.js": {
+    "mtime": 1788149035.1948795,
+    "seen": 1788150380.7232823,
+    "ast_hash": "462cc75ab6daae1fdd5b686fd04550f2",
+    "semantic_hash": "462cc75ab6daae1fdd5b686fd04550f2"
+  },
+  "js/webos.js": {
+    "mtime": 1788148735.3353727,
+    "seen": 1788150380.723283,
+    "ast_hash": "95a8288b72d0d3f7156404d3c3248e96",
+    "semantic_hash": "95a8288b72d0d3f7156404d3c3248e96"
+  },
+  "package.json": {
+    "mtime": 1788149225.9724407,
+    "seen": 1788150380.7232838,
+    "ast_hash": "a22f34f0f161cbef0feeb0a7c3d958ac",
+    "semantic_hash": "a22f34f0f161cbef0feeb0a7c3d958ac"
+  },
+  "playwright.config.js": {
+    "mtime": 1788149232.6274579,
+    "seen": 1788150380.7232842,
+    "ast_hash": "df8fb9f1a842045a869f6df1cfb3b63c",
+    "semantic_hash": "df8fb9f1a842045a869f6df1cfb3b63c"
+  },
+  "sw.js": {
+    "mtime": 1788149154.0803225,
+    "seen": 1788150380.723285,
+    "ast_hash": "ab6b61e69e29c0301e5bace3f27224e3",
+    "semantic_hash": "ab6b61e69e29c0301e5bace3f27224e3"
+  },
+  "tests/remote.spec.js": {
+    "mtime": 1788149747.7951345,
+    "seen": 1788150380.7232854,
+    "ast_hash": "46cd6c8c0207d33df6dd07666186dfb9",
+    "semantic_hash": "46cd6c8c0207d33df6dd07666186dfb9"
+  },
+  ".github/workflows/pages.yml": {
+    "mtime": 1788150095.105417,
+    "seen": 1788150380.723286,
+    "ast_hash": "aeb90628b6bf9f24cce0eb1afb0dc4cd",
+    "semantic_hash": "aeb90628b6bf9f24cce0eb1afb0dc4cd"
+  },
+  "CLAUDE.md": {
+    "mtime": 1788150219.3120296,
+    "seen": 1788150380.7232885,
+    "ast_hash": "c5ae7301b4b8f50d0075bf6e9203f556",
+    "semantic_hash": "c5ae7301b4b8f50d0075bf6e9203f556"
+  },
+  "README.md": {
+    "mtime": 1788150137.0036235,
+    "seen": 1788150380.7232893,
+    "ast_hash": "ce0d92a3ccf975a0a101bbb4bc9ae30a",
+    "semantic_hash": "ce0d92a3ccf975a0a101bbb4bc9ae30a"
+  },
+  "index.html": {
+    "mtime": 1788150056.117156,
+    "seen": 1788150380.72329,
+    "ast_hash": "475cd49f386cf443a118b192d52bd0b2",
+    "semantic_hash": "475cd49f386cf443a118b192d52bd0b2"
+  },
+  "overview.md": {
+    "mtime": 1788150174.4318082,
+    "seen": 1788150380.7232904,
+    "ast_hash": "784ef04c4c98ff2abeaf0c9fa9dbf6b3",
+    "semantic_hash": "784ef04c4c98ff2abeaf0c9fa9dbf6b3"
+  },
+  "project.md": {
+    "mtime": 1788150200.0529344,
+    "seen": 1788150380.7232912,
+    "ast_hash": "30750a50bab434b90210b8c6dac38830",
+    "semantic_hash": "30750a50bab434b90210b8c6dac38830"
+  },
+  "icons/icon-512.png": {
+    "mtime": 1788149173.1623404,
+    "seen": 1788150380.7232916,
+    "ast_hash": "1c80fe1014c131fb38c02b027bc09047",
+    "semantic_hash": "1c80fe1014c131fb38c02b027bc09047"
+  }
+}

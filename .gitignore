@@ -1,2 +1,6 @@
 node_modules/
-config.json
+test-results/
+playwright-report/
+_site/
+graphify-out/cache/
+graphify-out/.graphify_*
