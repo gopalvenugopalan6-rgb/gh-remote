@@ -556,7 +556,7 @@ function wireSetup() {
     const results = await scanSubnet(subnet, {
       signal: scanAbort.signal,
       onProgress: ({ done, total, found }) => {
-        $('#scan-bar').style.width = `${(done / total) * 100}%`;
+        $('#scan-bar').style.transform = `scaleX(${done / total})`;
         $('#scan-text').textContent = `${done} of ${total} checked · ${found.length} responding`;
         renderScanResults(found);
       },

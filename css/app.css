@@ -217,7 +217,7 @@ input[type='range']::-webkit-slider-thumb {
   width: 18px; height: 18px; margin-top: -6px;
   border-radius: 50%; background: var(--accent);
   border: 2px solid var(--bg);
-  transition: transform var(--dur-fast) var(--ease-spring);
+  transition: transform var(--dur-fast) var(--ease-out);
 }
 input[type='range']::-moz-range-thumb {
   width: 18px; height: 18px; border-radius: 50%;
@@ -435,7 +435,13 @@ input::placeholder { color: var(--text-dim); }
 }
 .scan-progress { display: grid; gap: 6px; }
 .bar { height: 5px; border-radius: 3px; background: var(--key-bg); overflow: hidden; }
-.bar-fill { height: 100%; width: 0; background: var(--accent); transition: width 160ms linear; }
+/* scaleX rather than width: a width transition relayouts on every frame of the
+   scan, and the scan is already doing 254 socket probes. */
+.bar-fill {
+  height: 100%; width: 100%; background: var(--accent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 160ms linear;
+}
 
 .overlay, .drawer {
   position: fixed; inset: 0; z-index: 50;
@@ -507,7 +513,7 @@ input::placeholder { color: var(--text-dim); }
   background: var(--surface-2); color: var(--text);
   border: 1px solid var(--key-border); border-radius: var(--radius-pill);
   box-shadow: var(--shadow-card);
-  animation: toast-in var(--dur-slow) var(--ease-spring);
+  animation: toast-in var(--dur-slow) var(--ease-out);
 }
 .toast.is-bad { color: var(--bad); border-color: color-mix(in srgb, var(--bad) 40%, transparent); }
 @keyframes toast-in { from { transform: translate(-50%, 14px); opacity: 0; } }
